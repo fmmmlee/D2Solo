@@ -9,7 +9,8 @@
         Source="MainPage.xaml"
         Height="75" 
         Width="275" 
-        WindowStyle="None" 
+        WindowStyle="None"
+        ShowInTaskbar="False"
         ResizeMode="NoResize"
         Activated="Window_Activated"
         Deactivated="Window_Deactivated">

@@ -1,8 +1,4 @@
-﻿using D2Solo.Backend;
-using GalaSoft.MvvmLight.Command;
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.ComponentModel;
 
 namespace D2Solo.UI
 {
@@ -29,7 +25,6 @@ namespace D2Solo.UI
             CanToggle = true;
         }
 
-        //button image/color + label should be based on this
         public bool SoloEnabled
         {
             get { return soloEnabled; }

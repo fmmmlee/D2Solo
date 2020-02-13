@@ -1,7 +1,13 @@
 # D2Solo
 Port blocker to disable matchmaking in Destiny 2.
 
+//Todo: Explain why admin
 
+//uses for tool
+
+//requirements
+
+//Mappable hotkeys
 
 
 

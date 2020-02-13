@@ -17,7 +17,6 @@ namespace D2Solo.UI
             InitializeComponent();
         }
 
-
         private void minimize(object sender, System.Windows.RoutedEventArgs e)
         {
             Window appWindow = Application.Current.MainWindow;
@@ -34,7 +33,7 @@ namespace D2Solo.UI
                 controls.SetValue(Grid.ColumnProperty, 2);
             }
 
-            MainWindow.setFullSizeLoc(appWindow);
+            ((MainWindow)Application.Current.MainWindow).snapTopRight();
             isMinimized = !isMinimized;
         }
 
