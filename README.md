@@ -3,9 +3,9 @@ Port blocker to disable matchmaking in Destiny 2.
 
 #### Status
 
-Currently a very rough WIP (I only just started this yesterday, Feb. 12).
+Currently a very rough WIP (I started this on Feb. 12). UI snapshot, actual size:
 
-
+![d2soloearlyUI](https://user-images.githubusercontent.com/30479162/74485672-1d1d8900-4e70-11ea-9675-a39547b27a3c.JPG)
 
 See the [wiki](https://github.com/fmmmlee/D2Solo/wiki) for info.
 
