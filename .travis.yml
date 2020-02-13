@@ -1,5 +1,0 @@
-language: csharp
-os: windows
-solution: D2Solo.sln
-before_install:
-    - cd Application
