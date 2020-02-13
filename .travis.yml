@@ -1,2 +1,4 @@
 language: csharp
 solution: D2Solo.sln
+before_install:
+    - cd Application
