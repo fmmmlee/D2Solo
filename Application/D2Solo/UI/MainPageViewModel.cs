@@ -8,8 +8,10 @@ namespace D2Solo.UI
 
         private bool soloEnabled;
         private bool canToggle;
-        private string statusLabel = "should not see this";
-        private string solobtnimg = "/Resources/ironwolveslogo.jpg";
+        private string statusLabel;
+        private string solobtnimg;
+        private string lockBtnBg;
+        private string minBtnBg;
 
         public static MainPageViewModel getInstance()
         {
@@ -30,7 +32,8 @@ namespace D2Solo.UI
             get { return soloEnabled; }
             set { 
                 soloEnabled = value;
-                StatusLabel = soloEnabled ? "Solo Mode Enabled" : "Solo Mode Disabled";
+                StatusLabel = soloEnabled ? "Solo" : "Matchmaking";
+                MinBtnBg = soloEnabled ? "Yellow" : "LightGreen";
                 SoloBtnImg = soloEnabled ? "/Resources/ironwolflogo.jpg" : "/Resources/ironwolveslogo.jpg";
                 propertyChanged($"{nameof(SoloEnabled)}");
             }
@@ -42,6 +45,17 @@ namespace D2Solo.UI
             set { solobtnimg = value; propertyChanged("SoloBtnImg"); }
         }
 
+        public string MinBtnBg
+        {
+            get { return minBtnBg; }
+            set { minBtnBg= value; propertyChanged("MinBtnBg"); }
+        }
+
+        public string LockBtnBg
+        {
+            get { return lockBtnBg; }
+            set { lockBtnBg = value; propertyChanged("LockBtnBg"); }
+        }
 
         public string StatusLabel
         {
@@ -52,7 +66,12 @@ namespace D2Solo.UI
         public bool CanToggle
         {
             get { return canToggle; }
-            set { canToggle = value; propertyChanged("CanToggle"); }
+            set 
+            { 
+                canToggle = value;
+                LockBtnBg = canToggle ? "Black" : "DarkRed";
+                propertyChanged("CanToggle");
+            }
         }
 
         //Add:

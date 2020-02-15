@@ -3,9 +3,9 @@ Port blocker to disable matchmaking in Destiny 2.
 
 #### Status
 
-Currently a very rough WIP (I started this on Feb. 12). UI snapshot, actual size:
+Currently a very rough WIP. UI snapshot, actual size:
 
-![d2soloearlyUI](https://user-images.githubusercontent.com/30479162/74485672-1d1d8900-4e70-11ea-9675-a39547b27a3c.JPG)
+![D2Solo UI](https://user-images.githubusercontent.com/30479162/74578887-09475500-4f4c-11ea-8484-a23357fc08e2.png)
 
 See the [wiki](https://github.com/fmmmlee/D2Solo/wiki) for info.
 
@@ -13,6 +13,7 @@ See the [wiki](https://github.com/fmmmlee/D2Solo/wiki) for info.
 
 - Mappable hotkeys
 - see if there's a way to block ports without admin rights
+- temporary firewall rules? that way if process is terminated unexpectedly the rules don't have to manually be removed
 
 
 

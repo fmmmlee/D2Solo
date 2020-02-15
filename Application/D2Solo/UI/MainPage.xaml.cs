@@ -37,6 +37,11 @@ namespace D2Solo.UI
             isMinimized = !isMinimized;
         }
 
+        private void openWiki(object sender, System.Windows.RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/fmmmlee/D2Solo/wiki");
+        }
+
         private void exitProg(object sender, System.Windows.RoutedEventArgs e)
         {
             if (MainPageViewModel.getInstance().SoloEnabled)
