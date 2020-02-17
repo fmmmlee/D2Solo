@@ -1,4 +1,4 @@
-# D2Solo<a href="https://ci.appveyor.com/project/fmmmlee/gw2-addon-manager"><img src="https://ci.appveyor.com/project/fmmmlee/d2solo" alt="UI" align="right"/></a>
+# D2Solo<a href="https://ci.appveyor.com/project/fmmmlee/d2solo"><img src="https://ci.appveyor.com/api/projects/status/github/fmmmlee/d2solo" alt="UI" align="right"/></a>
 Port blocker to disable matchmaking in Destiny 2.
 
 #### Status
