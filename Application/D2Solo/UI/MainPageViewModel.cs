@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 
 namespace D2Solo.UI
 {
@@ -12,6 +13,7 @@ namespace D2Solo.UI
         private string solobtnimg;
         private string lockBtnBg;
         private string minBtnBg;
+        private Visibility uIVisibility;
 
         public static MainPageViewModel getInstance()
         {
@@ -32,10 +34,20 @@ namespace D2Solo.UI
             get { return soloEnabled; }
             set { 
                 soloEnabled = value;
-                StatusLabel = soloEnabled ? "Solo" : "Matchmaking";
+                StatusLabel = soloEnabled ? "Solo Mode" : "Matchmaking";
                 MinBtnBg = soloEnabled ? "Yellow" : "LightGreen";
                 SoloBtnImg = soloEnabled ? "/Resources/ironwolflogo.jpg" : "/Resources/ironwolveslogo.jpg";
                 propertyChanged($"{nameof(SoloEnabled)}");
+            }
+        }
+
+        public Visibility UIVisibility
+        {
+            get { return uIVisibility; }
+            set
+            {
+                uIVisibility = value;
+                propertyChanged($"{nameof(UIVisibility)}");
             }
         }
 

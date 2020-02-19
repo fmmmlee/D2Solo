@@ -21,17 +21,9 @@ namespace D2Solo.UI
         {
             Window appWindow = Application.Current.MainWindow;
             if (!isMinimized)
-            {
-                appWindow.Width = 50;
-                appWindow.Height = 10;
-                controls.SetValue(Grid.ColumnProperty, 0);
-            }
+                MainPageViewModel.getInstance().UIVisibility = Visibility.Hidden;
             else
-            {
-                appWindow.Width = 275;
-                appWindow.Height = 75;
-                controls.SetValue(Grid.ColumnProperty, 2);
-            }
+                MainPageViewModel.getInstance().UIVisibility = Visibility.Visible;
 
             ((MainWindow)Application.Current.MainWindow).snapTopRight();
             isMinimized = !isMinimized;

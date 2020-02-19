@@ -5,140 +5,176 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:D2Solo.UI"
       mc:Ignorable="d" 
-      d:DesignHeight="75" d:DesignWidth="275"
+      d:DesignHeight="75" d:DesignWidth="255"
       ShowsNavigationUI="False"
       Title="MainPage">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60"/>
-            <ColumnDefinition Width="140"/>
-            <ColumnDefinition Width="75"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="65"/>
-        </Grid.RowDefinitions>
 
-        <Label 
-            Grid.Row="1" 
-            Grid.Column="1" 
-            Foreground="Black"
-            FontSize="18"
-            FontFamily="Century Gothic"
-            VerticalAlignment="Bottom"
-            Margin="10,0,0,10"
-            Padding="0,0,0,0"
-            Content="{Binding StatusLabel}"/>
-        <Label 
-            Grid.Row="1" 
-            Grid.Column="1"
-            Width="50"
-            Foreground="Black"
-            FontSize="12"
-            FontFamily="Century Gothic"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Right"
-            Padding="0,0,0,0"
-            BorderBrush="DarkSlateGray"
-            BorderThickness="1"
-            Content="Keybind"
-            ToolTip="hide/show with Ctrl+F10"
-            />
+    <StackPanel Orientation="Horizontal" Width="255" Height="75">
+        <Grid Visibility="{Binding UIVisibility}">
+            <Border Width="30" HorizontalAlignment="Right">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                        <GradientStop Color="#FF646464" Offset="0.0"/>
+                        <GradientStop Color="Tan" Offset="0.25"/>
+                        <GradientStop Color="Tan" Offset="0.75"/>
+                        <GradientStop Color="#FF646464" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
 
-        <!-- Solo Mode Button -->
-        <Button 
-            Grid.Column="0" 
-            Grid.Row="1"
-            IsEnabled="{Binding CanToggle}"
-            Height="55"
-            Width="55"
-            Click="toggleSoloMode"
-            ToolTip="Toggle Solo Mode"
-            Style="{DynamicResource MainSoloButtonStyle}"
-            >
-            <Button.Background>
-                <VisualBrush>
-                    <VisualBrush.Visual>
-                        <Image Name="backgroundImg" Source="{Binding SoloBtnImg}">
+            <Grid>
+                <Grid.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=Border1}" />
+                </Grid.OpacityMask>
+                <Border x:Name="Border1"
+                        CornerRadius="10"
+                        Height="75"
+                        Width="85">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                            <GradientStop Color="#FF646464" Offset="0.0"/>
+                            <GradientStop Color="Tan" Offset="0.25"/>
+                            <GradientStop Color="Tan" Offset="0.75"/>
+                            <GradientStop Color="#FF646464" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <!-- Solo Mode Button -->
+                <Button 
+                    IsEnabled="{Binding CanToggle}"
+                    Height="75"
+                    Width="75"
+                    HorizontalAlignment="Left"
+                    Click="toggleSoloMode"
+                    ToolTip="Toggle Solo Mode"
+                    BorderThickness="0"
+                    Style="{DynamicResource MainSoloButtonStyle}"
+                    >
 
-                        </Image>
-                    </VisualBrush.Visual>
-                </VisualBrush>
-            </Button.Background>
-        </Button>
+                    <Button.Background>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Image Name="backgroundImg" Source="{Binding SoloBtnImg}">
+
+                                </Image>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </Grid>
         
-        <!-- locks main solo mode button -->
-        <Button Grid.Column="2" Grid.Row="1"
-                Height="25"
-                Width="25"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Right"
-                FontSize="10"
-                Click="lockToggle"
-                Background="{Binding LockBtnBg}"
-                BorderThickness="0" 
-                ToolTip="Lock the solo toggle"
-                Style="{DynamicResource LockButtonStyle}"
+        <Grid>
+            <Grid.RowDefinitions>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                
+            </Grid.ColumnDefinitions>
+
+            
+            <Grid 
+                Width="170" 
+                Height="75" 
+                Grid.Row="1"
+                Visibility="{Binding UIVisibility}"
                 >
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15"/>
-                </Style>
-            </Button.Resources>
-            <Image Source="/Resources/destinyLockImg.png"/>
-        </Button>
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                        <GradientStop Color="#FF646464" Offset="0.0"/>
+                        <GradientStop Color="Tan" Offset="0.25"/>
+                        <GradientStop Color="Tan" Offset="0.75"/>
+                        <GradientStop Color="#FF646464" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Label 
+                    Foreground="Black"
+                    FontSize="20"
+                    FontFamily="Century Gothic"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="0,10,0,0"
+                    Padding="0,0,0,0"
+                    ToolTip="hide/show with Ctrl+F10"
+                    Content="{Binding StatusLabel}"
+                    />
+                <!-- locks main solo mode button -->
+                <Button 
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    Height="25"
+                    Width="25"
+                    Margin="0,15,0,0"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    FontSize="10"
+                    Click="lockToggle"
+                    Background="{Binding LockBtnBg}"
+                    BorderThickness="0" 
+                    ToolTip="Lock the solo toggle"
+                    Style="{DynamicResource LockButtonStyle}"
+                    >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                    <Image Source="/Resources/destinyLockImg.png"/>
+                </Button>
 
-        <Button Grid.Column="2" Grid.Row="1"
-                Height="25"
-                Width="25"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right"
-                FontSize="10"
-                Click="openWiki"
-                Background="Black"
-                Margin="0,0,0,10"
-                BorderThickness="0"
-                ToolTip="D2Solo Wiki"
-                Style="{DynamicResource LockButtonStyle}"
-                >
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15"/>
-                </Style>
-            </Button.Resources>
-            <Image Source="/Resources/imageForWikiLink.png"/>
-        </Button>
-
-
-
-        <StackPanel
-            Name="controls"
-            Grid.Row="0"
-            Grid.Column="2"
-            Orientation="Horizontal"
-            FlowDirection="RightToLeft"
-            Margin="0,0,0,0"
-            >
-            <Button
-                Width="35"
-                FontSize="7"
-                Background="PaleVioletRed"
-                BorderThickness="0"
-                Padding="0,0,0,0"
+                <Button
+                    Height="25"
+                    Width="25"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right"
+                    FontSize="10"
+                    Click="openWiki"
+                    Background="Black"
+                    Margin="0,0,0,5"
+                    BorderThickness="0"
+                    ToolTip="D2Solo Wiki"
+                    Style="{DynamicResource LockButtonStyle}"
+                    >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                    <Image Source="/Resources/imageForWikiLink.png"/>
+                </Button>
+            </Grid>
+            
+            <!-- Minimize and Close buttons -->
+            <StackPanel
+                Name="controls"
+                Grid.Column="2"
+                Grid.Row="0"
+                Orientation="Horizontal"
+                FlowDirection="RightToLeft"
                 Margin="0,0,0,0"
-                Click="exitProg"
-                ToolTip="Close and disable solo mode if enabled"
-                />
-            <Button
-                FontSize="7"
-                BorderThickness="0"
-                Width="25" 
-                Padding="0,0,0,0"
-                Click="minimize"
-                ToolTip="Shrink"
-                Background="{Binding MinBtnBg}"
-                />
-
-        </StackPanel>
-    </Grid>
+                Height="10"
+                VerticalAlignment="Top"
+                >
+                <Button
+                    Width="35"
+                    FontSize="7"
+                    Background="PaleVioletRed"
+                    BorderThickness="0"
+                    Padding="0,0,0,0"
+                    Margin="0,0,0,0"
+                    Click="exitProg"
+                    ToolTip="Close and disable solo mode if enabled"
+                    />
+                <Button
+                    FontSize="7"
+                    BorderThickness="0"
+                    Width="25" 
+                    Padding="0,0,0,0"
+                    Click="minimize"
+                    ToolTip="Shrink"
+                    Background="{Binding MinBtnBg}"
+                    />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 </Page>

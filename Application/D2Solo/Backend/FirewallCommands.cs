@@ -14,6 +14,12 @@ namespace D2Solo.Backend
 
         public static void BlockMatchmakingPorts()
         {
+            //going to try out binding to socket manually without firewalls and seeing if that works
+
+
+
+
+
             //creating new rules
             INetFwRule2 OutBoundTCP = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
             INetFwRule2 OutBoundUDP = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
