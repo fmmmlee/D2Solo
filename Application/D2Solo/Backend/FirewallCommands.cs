@@ -21,55 +21,55 @@ namespace D2Solo.Backend
 
 
             //creating new rules
-            INetFwRule2 OutBoundTCP = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
             INetFwRule2 OutBoundUDP = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
-            INetFwRule2 InBoundTCP = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
+            INetFwRule2 OutBoundTCP = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
             INetFwRule2 InBoundUDP = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
+            INetFwRule2 InBoundTCP = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
 
             //names
-            OutBoundTCP.Name = OUT_TCP_NAME;
             OutBoundUDP.Name = OUT_UDP_NAME;
-            InBoundTCP.Name = IN_TCP_NAME;
+            OutBoundTCP.Name = OUT_TCP_NAME;
             InBoundUDP.Name = IN_UDP_NAME;
+            InBoundTCP.Name = IN_TCP_NAME;
 
             //enabling
-            OutBoundTCP.Enabled = true;
             OutBoundUDP.Enabled = true;
-            InBoundTCP.Enabled = true;
+            OutBoundTCP.Enabled = true;
             InBoundUDP.Enabled = true;
+            InBoundTCP.Enabled = true;
 
             //specifying block as action
-            OutBoundTCP.Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
             OutBoundUDP.Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
-            InBoundTCP.Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
+            OutBoundTCP.Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
             InBoundUDP.Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
+            InBoundTCP.Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
 
-            //setting TCP or UDP
-            OutBoundTCP.Protocol = 6;
+            //setting UDP/TCP
             OutBoundUDP.Protocol = 17;
-            InBoundTCP.Protocol = 6;
+            OutBoundTCP.Protocol = 6;
             InBoundUDP.Protocol = 17;
+            InBoundTCP.Protocol = 6;
 
             //specifying ports to block
-            OutBoundTCP.LocalPorts = "1935,3097,3478-3480";
-            OutBoundUDP.LocalPorts = "1935,3097,3478-3480";
-            InBoundTCP.LocalPorts = "1935,3097,3478-3480";
-            InBoundUDP.LocalPorts = "1935,3097,3478-3480";
+            OutBoundUDP.RemotePorts = "27000-27100";
+            OutBoundTCP.RemotePorts = "27000-27100";
+            InBoundUDP.RemotePorts = "27000-27100";
+            InBoundTCP.RemotePorts = "27000-27100";
 
             //direction
-            OutBoundTCP.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;
             OutBoundUDP.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;
-            InBoundTCP.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_IN;
+            OutBoundTCP.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;
             InBoundUDP.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_IN;
+            InBoundTCP.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_IN;
 
             //fetching firewall policy
             INetFwPolicy2 currentFWPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
 
             //adding new rules
-            currentFWPolicy.Rules.Add(OutBoundTCP);
             currentFWPolicy.Rules.Add(OutBoundUDP);
-            currentFWPolicy.Rules.Add(InBoundTCP);
+            currentFWPolicy.Rules.Add(OutBoundTCP);
             currentFWPolicy.Rules.Add(InBoundUDP);
+            currentFWPolicy.Rules.Add(InBoundTCP);
 
             MainPageViewModel.getInstance().SoloEnabled = true;
         }
@@ -80,10 +80,10 @@ namespace D2Solo.Backend
             INetFwPolicy2 currentFWPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
 
             //removing rules
-            currentFWPolicy.Rules.Remove(OUT_TCP_NAME);
             currentFWPolicy.Rules.Remove(OUT_UDP_NAME);
-            currentFWPolicy.Rules.Remove(IN_TCP_NAME);
+            currentFWPolicy.Rules.Remove(OUT_TCP_NAME);
             currentFWPolicy.Rules.Remove(IN_UDP_NAME);
+            currentFWPolicy.Rules.Remove(IN_TCP_NAME);
 
             MainPageViewModel.getInstance().SoloEnabled = false;
         }
