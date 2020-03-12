@@ -4,7 +4,7 @@ Port blocker to disable matchmaking in Destiny 2.
 #### Status
 
 
-**As of season 10, changes in Destiny 2's peer-to-peer networking have rendered port blocking ineffectual and this application is defunct as a result. I may try alternate methods that can block the new Steam-integrated networking implementation.**
+**As of Season 10, Destiny 2 now utilizes the [ISteamNetworkingSockets](https://github.com/ValveSoftware/GameNetworkingSockets) interface. This change has rendered the old approach to port blocking ineffectual. Currently trying out blocking a different set of ports; see the SotW-workaround-wip branch for details.**
 
 UI snapshot, actual size:
 
