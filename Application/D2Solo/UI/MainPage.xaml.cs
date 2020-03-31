@@ -17,9 +17,8 @@ namespace D2Solo.UI
             InitializeComponent();
         }
 
-        private void minimize(object sender, System.Windows.RoutedEventArgs e)
+        private void minimize(object sender, RoutedEventArgs e)
         {
-            Window appWindow = Application.Current.MainWindow;
             if (!isMinimized)
                 MainPageViewModel.getInstance().UIVisibility = Visibility.Hidden;
             else
